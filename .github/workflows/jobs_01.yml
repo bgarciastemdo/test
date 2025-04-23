@@ -1,0 +1,38 @@
+name: ejercicio job1
+
+on:
+  workflow_dispatch:
+
+
+jobs: 
+  jobs_01:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+
+      - name: mostrar hora y fecha acutal
+        run: date
+
+
+      - name: crear archivo de texto
+        run: echo "hola buenas tardes" > archivo.txt
+
+
+      - name: archivos en el directorio actual
+        run: ls
+
+
+      - name: configurar github
+        run: | 
+           git config user.name "bgarciastemdo"
+           git config user.email "bgarcia@stemdo.io"
+
+      - name: push del archivo creado
+        run: |
+          git add archivo.txt
+          git commit -m "archivo.txt creado"
+          git push
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
