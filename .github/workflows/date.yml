@@ -1,14 +1,14 @@
-name: ver fecha actual
+name: fecha actual
 
-
-on: 
+# Programar el workflow para que se ejecute todos los días a las 12:00 UTC
+on:
   workflow_dispatch:
-  
+
 jobs:
-ver_hora:
-runs-on: ubuntu-latest
-  steps: 
-    - name: imprimir fecha actual
-      run: | 
-       echo "La fecha actual es $(date)"
-       
+  scheduled-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sacar hora actual
+        run: echo "la hora actual es  $(date)"
+      
+  
