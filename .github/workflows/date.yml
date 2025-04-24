@@ -1,0 +1,14 @@
+name: ver fecha actual
+
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+ver_hora:
+runs-on: ubuntu-latest
+  steps: 
+    - name: imprimir fecha actual
+      run: | 
+       echo "La fecha actual es $(date)"
+       
